@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gửi Lan Hương ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lk" viewBox="0 0 100 112"><path d="M30 54V38a20 20 0 0 1 40 0v16" fill="none" stroke="var(--rose-d)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M50 108C8 74 4 46 25 38c12-4 22 2 25 12 3-10 13-16 25-12 21 8 17 36-25 70z" fill="var(--rose)"/>
+    <circle cx="50" cy="66" r="6" fill="#fff"/><path d="M47 70h6l2 14H45z" fill="#fff"/></symbol>
+  <symbol id="ul" viewBox="0 0 100 112"><path d="M30 54V38a20 20 0 0 1 40 0v4" fill="none" stroke="var(--rose-d)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M50 108C8 74 4 46 25 38c12-4 22 2 25 12 3-10 13-16 25-12 21 8 17 36-25 70z" fill="var(--rose)"/>
+    <circle cx="50" cy="66" r="6" fill="#fff"/><path d="M47 70h6l2 14H45z" fill="#fff"/></symbol>
+  <symbol id="bow" viewBox="0 0 100 70"><path d="M50 30C30 2 4 10 12 32c7 17 28 8 38-2zM50 30C70 2 96 10 88 32c-7 17-28 8-38-2z" fill="var(--rose)"/>
+    <path d="M46 36L34 66l14-8 4 10zM54 36l12 30-14-8-4 10z" fill="var(--rose-d)"/><circle cx="50" cy="31" r="8" fill="var(--rose-d)"/><circle cx="47" cy="28" r="2.5" fill="#fff" opacity=".6"/></symbol>
+</svg>
+<div id="sky"></div>
+<main id="app">
+
+<section class="screen on" id="p1">
+  <div class="card slow">
+    <svg class="bow"><use href="#bow"/></svg>
+    <div class="tag">GỬI ĐẾN NGƯỜI TÔI THƯƠNG</div>
+    <h1>Một bất ngờ nho nhỏ<br>chỉ dành cho riêng em</h1>
+    <div class="divider">♡</div>
+    <p class="sub">Anh giấu một điều ở đây, và chỉ em mới được mở nó ra...</p>
+  </div>
+  <button class="heart-open" id="open" aria-label="Mở thiệp">♥</button>
+  <p class="hint">Chạm vào trái tim để mở thiệp</p>
+</section>
+
+<section class="screen" id="p2">
+  <div class="card">
+    <svg class="bow"><use href="#bow"/></svg>
+    <div class="tag">GỬI LAN HƯƠNG ♡</div>
+    <h2>Chúc mừng sinh nhật em</h2>
+  <div class="divider">♡</div>
+    <div class="letter-box"><div class="letter" id="letter"></div></div>
+    <p class="hint" id="lh">Một chút yêu thương đang được gửi đến em...</p>
+    <button class="btn hide" id="n2">NEXT →</button>
+  </div>
+</section>
+
+<section class="screen" id="p3">
+  <div class="bunting" id="bunting"></div>
+  <h2>Một chiếc bánh dành cho em</h2>
+  <div class="divider">♡</div>
+  <p class="sub">Nhắm mắt lại, ước một điều thật đẹp nhé. Biết đâu có người đang âm thầm ước cùng em.</p>
+  <div class="cake" id="cake"><div class="flame"></div><div class="smoke"></div><div class="candle"></div><div class="top"></div><div class="base"></div></div>
+  <p class="hint" id="cut">↔ VUỐT NGANG ĐỂ CẮT BÁNH</p>
+  <h2 id="hb" class="hide">Happy Birthday Lan Hương ♡</h2>
+  <button class="btn hide" id="n3">NEXT →</button>
+</section>
+
+<section class="screen" id="p4">
+  <button class="lock-btn" id="n4" aria-label="Chạm để tiếp tục"><svg class="lock"><use href="#lk"/></svg></button>
+  <h2>Chạm vào trái tim để tiếp tục</h2>
+  <div class="divider">♡</div>
+  <p class="sub">Phía sau là một bí mật, và anh chỉ kể cho mình em nghe thôi.</p>
+</section>
+
+<section class="screen" id="p5">
+  <svg class="lock"><use href="#lk"/></svg>
+  <h2>Nhập ngày sinh vào để mở khóa</h2>
+  <div class="divider">♡</div>
+  <div class="dots" id="dots"><i></i><i></i><i></i><i></i></div>
+  <div class="pad" id="pad"></div>
+  <p class="err" id="err"></p>
+  <p class="hint">Mật khẩu gồm 4 chữ số. Đoán sai cũng không sao, anh vẫn đợi em ♡</p>
+</section>
+
+<section class="screen" id="p6">
+  <svg class="lock"><use href="#ul"/></svg>
+  <h2>Những kỷ niệm</h2>
+  <div class="divider">♡</div>
+  <p class="sub">Mỗi bức ảnh là một khoảnh khắc anh muốn giữ lại, và hầu như khoảnh khắc nào cũng có em.</p>
+  <button class="btn" id="n6">MỞ ALBUM →</button>
+</section>
+
+<section class="screen" id="p7">
+  <h2>Những kỷ niệm ♡</h2>
+  <div class="divider">♡</div>
+  <label class="up">＋ Thêm hình ảnh<input type="file" id="picker" accept="image/*" multiple></label>
+  <div class="gal" id="gal"></div>
+  <p class="hint">Chọn nhiều ảnh cùng lúc, rồi kéo qua trái hoặc phải để xem.</p>
+  <button class="btn" id="home">♡ QUAY LẠI TRANG CHỦ</button>
+</section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
