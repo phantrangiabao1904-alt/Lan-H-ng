@@ -43,6 +43,7 @@
   <div class="divider">♡</div>
     <div class="letter-box"><div class="letter" id="letter"></div></div>
     <p class="hint" id="lh">Có người đang viết từng chữ, rất chậm và rất thật lòng...</p>
+    <button class="ghost" id="skip">⏩ Hiện hết thư</button>
     <button class="btn hide" id="n2">NEXT →</button>
   </div>
 </section>
@@ -54,6 +55,7 @@
   <p class="sub">Hãy nhắm mắt và ước một điều thật đẹp nhé. Nếu điều ước đó có chỗ cho anh, anh xin cảm ơn trước.</p>
   <div class="cake" id="cake"><div class="flame"></div><div class="smoke"></div><div class="candle"></div><div class="top"></div><div class="base"></div></div>
   <p class="hint" id="cut">↔ VUỐT NGANG ĐỂ CẮT BÁNH</p>
+  <button class="ghost" id="mic">🎤 Hoặc thổi vào micro để tắt nến</button>
   <h2 id="hb" class="hide">Happy Birthday Lan Hương ♡</h2>
   <button class="btn hide" id="n3">NEXT →</button>
 </section>
@@ -83,6 +85,22 @@
   <button class="btn" id="n6">MỞ ALBUM →</button>
 </section>
 
+<section class="screen" id="p8">
+  <h2>Có những con số anh nhớ rất rõ</h2>
+  <div class="divider">♡</div>
+  <div class="cnt" id="cnt"></div>
+  <p class="sub">Và anh sẽ còn nhớ thêm nhiều ngày nữa, nếu em cho phép.</p>
+  <button class="btn" id="n8">TIẾP TỤC →</button>
+</section>
+
+<section class="screen" id="p9">
+  <h2>Những lý do anh mỉm cười</h2>
+  <div class="divider">♡</div>
+  <p class="sub">Chạm vào từng thẻ để lật nhé.</p>
+  <div class="cards" id="cards"></div>
+  <button class="btn" id="n9">XEM ALBUM →</button>
+</section>
+
 <section class="screen" id="p7">
   <h2>Những khoảnh khắc nhỏ ♡</h2>
   <div class="divider">♡</div>
@@ -90,10 +108,18 @@
   <div class="gal" id="gal"></div>
   <p class="hint">Kéo qua trái hoặc phải để xem ảnh. Mỗi tấm là một lý do khiến anh mỉm cười ♡</p>
             <p class="sub">P.S. Anh vẫn đang chờ, nhưng không vội đâu. Em cứ thong thả nhé.</p>
+  <a class="btn hide" id="contact" target="_blank" rel="noopener">💌 Nếu em muốn nói gì với anh</a><br>
   <button class="btn" id="home">♡ QUAY LẠI TRANG CHỦ</button>
 </section>
 
 </main>
+<button class="mus hide" id="mus" aria-label="Bật tắt nhạc">🔊</button>
+<div class="lb hide" id="lb">
+  <button class="lbx" id="lbx" aria-label="Đóng">✕</button>
+  <button class="lbn l" id="lbp" aria-label="Ảnh trước">‹</button>
+  <div class="lbc" id="lbc"></div>
+  <button class="lbn r" id="lbn" aria-label="Ảnh sau">›</button>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
