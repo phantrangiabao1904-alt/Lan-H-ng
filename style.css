@@ -98,3 +98,5 @@ body::after{width:40vmax;height:40vmax;right:-12vmax;bottom:-12vmax;background:r
 .photo{border-bottom-width:30px}
 .photo:nth-child(odd){transform:rotate(-2deg)}.photo:nth-child(even){transform:rotate(2deg)}
 .pad button:hover{background:#ffe3ef}
+.fx{position:relative;display:inline;animation:starfall .8s cubic-bezier(.2,.7,.3,1) both}
+@keyframes starfall{0%{opacity:0;top:-38px;text-shadow:0 0 12px #ff8fbd,0 0 26px #fff}55%{opacity:1}100%{opacity:1;top:0;text-shadow:0 0 0 transparent}}

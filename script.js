@@ -3,15 +3,15 @@ const $=id=>document.getElementById(id);
 const PHOTOS=[];
 const LETTER=`Lan Hương à,
 
-Hôm nay là sinh nhật em, nên anh được một đặc quyền nhỏ: nói ra những điều anh vẫn giấu bấy lâu nay.
+Anh viết thư này mà tim đập nhanh hơn bình thường, nên nếu có chữ nào hơi run thì em thông cảm nhé.
 
-Chúc em tuổi mới thật nhiều sức khỏe, niềm vui, may mắn và những điều em mong ước. Nếu có điều ước nào chưa thành, cho anh xin được góp một tay nhé.
+Hôm nay là sinh nhật em. Anh chúc em một tuổi mới thật nhiều sức khỏe, nhiều tiếng cười và nhiều điều tốt đẹp, những điều xứng đáng với một người dịu dàng như em.
 
-Cảm ơn em vì đã xuất hiện. Từ khi có em, những ngày bình thường bỗng đáng mong chờ hơn hẳn, đến mức anh cũng không hiểu vì sao mình hay mỉm cười một mình như vậy.
+Có những người đến bên mình rất nhẹ, nhưng lại khiến mọi thứ xung quanh sáng lên. Với anh, em là người như thế. Anh không dám nói nhiều, chỉ âm thầm vui khi thấy em vui, và âm thầm lo khi em mệt.
 
-Anh nghe nói sinh nhật là ngày ước gì cũng được. Vậy nếu em hỏi anh ước gì, anh sẽ ước năm sau, và nhiều năm sau nữa, anh vẫn là người chúc mừng em đầu tiên.
+Anh không đòi hỏi gì đâu. Chỉ mong mỗi ngày của em đều đẹp, và nếu có thể, cho anh được đứng gần em thêm một chút, từ từ thôi, em đừng vội.
 
-Chúc cô gái của anh luôn rạng rỡ theo cách riêng của mình.
+Nếu hôm nay em ước một điều, anh cũng xin ước ké một điều: ước sao năm sau, anh vẫn được là người gửi lời chúc này đến em.
 
 Happy Birthday, Lan Hương! ♡`.normalize("NFC");
 const PASSWORD="1111";
@@ -36,15 +36,15 @@ function confetti(){const a=["♥","♡","✦","●","❀"],k=["#f77fb0","#ffc2d
 
 /* Chuyển trang */
 function go(n){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on",s.id==="p"+n));$("app").scrollTo(0,0)}
-$("home").onclick=()=>go(1);$("n2").onclick=()=>go(3);$("n3").onclick=()=>go(4);$("n4").onclick=()=>go(5);$("n6").onclick=()=>go(7);
+$("home").onclick=()=>{go(1);playHome(.3)};$("n2").onclick=()=>go(3);$("n3").onclick=()=>go(4);$("n4").onclick=()=>go(5);$("n6").onclick=()=>go(7);
 
 /* Bức thư gõ từng chữ */
 let timer;
 $("open").onclick=()=>{go(2);const box=$("letter"),next=$("n2"),hint=$("lh"),chars=Array.from(LETTER);let i=0;
-  box.textContent="";next.classList.add("hide");hint.textContent="Một chút yêu thương đang được gửi đến em...";clearInterval(timer);
+  box.textContent="";next.classList.add("hide");hint.textContent="Có người đang viết từng chữ, rất chậm và rất thật lòng...";clearInterval(timer);
   timer=setInterval(()=>{const near=box.scrollHeight-box.scrollTop-box.clientHeight<35;
-    box.textContent+=chars[i++];if(near)box.scrollTop=box.scrollHeight;
-    if(i>=chars.length){clearInterval(timer);next.classList.remove("hide");hint.textContent="♡ Gửi em bằng tất cả sự chân thành, và hơi nhiều thương ♡"}},35)};
+    const sp=document.createElement("span");sp.className="fx";sp.textContent=chars[i++];box.appendChild(sp);if(near)box.scrollTop=box.scrollHeight;
+    if(i>=chars.length){clearInterval(timer);next.classList.remove("hide");hint.textContent="♡ Chữ có thể run, nhưng lòng thì thật ♡"}},35)};
 
 /* Vuốt để cắt bánh */
 const cake=$("cake");let sx=null;
@@ -59,7 +59,7 @@ let pin="";const dots=document.querySelectorAll("#dots i");
 function draw(){dots.forEach((d,i)=>d.classList.toggle("f",i<pin.length))}
 function add(n){if(pin.length>=4)return;pin+=n;draw();$("err").textContent="";if(pin.length===4)setTimeout(check,200)}
 function del(){pin=pin.slice(0,-1);draw();$("err").textContent=""}
-function check(){if(pin===PASSWORD){pin="";draw();go(6);confetti()}else{$("err").textContent="Chưa đúng rồi, em thử lại nhé ♡";pin="";draw()}}
+function check(){if(pin===PASSWORD){pin="";draw();go(6);confetti()}else{$("err").textContent="Chưa đúng rồi, em thử lại nhé. Anh đợi được mà ♡";pin="";draw()}}
 ["1","2","3","4","5","6","7","8","9","⌫","0","↵"].forEach(k=>{const b=document.createElement("button");b.textContent=k;
   b.onclick=()=>k==="⌫"?del():k==="↵"?check():add(k);$("pad").appendChild(b)});
 document.addEventListener("keydown",e=>{if(!$("p5").classList.contains("on"))return;
@@ -87,3 +87,15 @@ $("picker").addEventListener("change",e=>{
   files.forEach(f=>{const u=URL.createObjectURL(f);urls.push(u);addPhoto(u,f.name)});
   e.target.value="";gal.scrollTo({left:0})});
 window.addEventListener("beforeunload",()=>urls.forEach(u=>URL.revokeObjectURL(u)));
+
+/* Chữ rơi như sao băng ở trang mở đầu */
+function fx(el,start,step){if(!el.dataset.h)el.dataset.h=el.innerHTML;el.innerHTML=el.dataset.h;let k=0;
+  const walk=n=>[...n.childNodes].forEach(c=>{
+    if(c.nodeType===3){const f=document.createDocumentFragment();
+      Array.from(c.textContent).forEach(ch=>{if(/\s/.test(ch)){f.appendChild(document.createTextNode(ch));return}
+        const s=document.createElement("span");s.className="fx";s.textContent=ch;s.style.animationDelay=(start+k++*step)+"s";f.appendChild(s)});
+      c.replaceWith(f)}else if(c.nodeType===1&&c.tagName!=="BR")walk(c)});
+  walk(el)}
+function playHome(start){let t=start;
+  ["#p1 .tag","#p1 h1","#p1 .sub"].forEach(q=>{const el=document.querySelector(q);fx(el,t,.035);t+=Array.from(el.textContent).length*.035+.2})}
+playHome(1.2);
